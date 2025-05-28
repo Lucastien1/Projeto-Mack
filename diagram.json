@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Lucas Tien",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -57.6, "left": 52.84, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -94.5,
+      "left": -167.3,
+      "attrs": { "distance": "220" }
+    },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 85.1, "left": -230.6, "attrs": {} },
+    { "type": "wokwi-relay-module", "id": "relay1", "top": 211.4, "left": -86.4, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "ultrasonic1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "ultrasonic1:TRIG", "esp:26", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:27", "green", [ "v0" ] ],
+    [ "pot1:SIG", "esp:34", "green", [ "v0" ] ],
+    [ "pot1:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "pot1:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "relay1:VCC", "esp:5V", "red", [ "h0" ] ],
+    [ "relay1:GND", "esp:GND.1", "black", [ "h19.2", "v-48.4" ] ],
+    [ "relay1:IN", "esp:25", "green", [ "h0", "v-96.2" ] ]
+  ],
+  "dependencies": {}
+}
